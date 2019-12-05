@@ -17,6 +17,10 @@ window.addEventListener("scroll", function () {
     progress.style.width = `${scrollProgress()}%`;
 });
 
+window.addEventListener("resize", function () {
+    this.location.reload()
+});
+
 console.log(`body.clientHeight: ${cHeight}`);
 console.log(`window.innerHeight: ${wHeight}`);
 console.log(`window.pageYOffset: ${window.pageYOffset}`);
