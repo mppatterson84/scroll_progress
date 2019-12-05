@@ -1,31 +1,23 @@
-const progress = document.querySelectorAll("div.progressBar div");
-const cHeight = document.body.clientHeight;
-const wHeight = window.innerHeight;
+const progress = document.querySelector("div.progressBar div");
+var cHeight = document.body.clientHeight;
+var wHeight = window.innerHeight;
 
-function progressChange (index) {
-    if (window.pageYOffset > index * (cHeight - wHeight) / 20) {
-        progress[index].classList.remove("gray");
-        progress[index].classList.add("blue");
-    } else if (window.pageYOffset <= index * (cHeight - wHeight) / 20) {
-        progress[index].classList.remove("blue");
-        progress[index].classList.add("gray");
-    }
-    return index;
+function scrollProgress() {
+    var scrollOffset = window.pageYOffset;
+    var onePercentOfHeight = (cHeight - wHeight) / 100;
+    var scrollPosition = scrollOffset / onePercentOfHeight;
+    return scrollPosition;
 }
 
-progress.forEach( function (prog, index) {
-    window.addEventListener("load", function () {
-        progressChange(index);
-    });
+window.addEventListener("load", function () {
+    progress.style.width = `${scrollProgress()}%`;
 });
 
-progress.forEach( function (prog, index) {
-    window.addEventListener("scroll", function () {
-        progressChange(index);
-    });
+window.addEventListener("scroll", function () {
+    progress.style.width = `${scrollProgress()}%`;
 });
 
 console.log(`body.clientHeight: ${cHeight}`);
 console.log(`window.innerHeight: ${wHeight}`);
 console.log(`window.pageYOffset: ${window.pageYOffset}`);
-console.log(`body.clientHeight - window.innerHeight: ${cHeight - wHeight}`);
+console.log(`window.pageYOffset / window.innerHeight: ${window.pageYOffset / wHeight}`);

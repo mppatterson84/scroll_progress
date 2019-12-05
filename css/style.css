@@ -23,14 +23,9 @@ main section h3{
     width: 100%;
     display: flex;
     flex-direction: row;
-}
-.progressBar > div{
-    width: 5%;
-    height: inherit;
-}
-.gray{
     background-color: lightgray;
 }
-.blue{
+.progressBar > div{
+    height: inherit;
     background-color: blue;
 }
