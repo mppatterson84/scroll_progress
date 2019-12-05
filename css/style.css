@@ -15,12 +15,14 @@ main section:nth-of-type(3){
     background-color: lightsalmon;
 }
 main section h3{
-    padding-top: 60px;
+    padding-top: 70px;
 }
 
 .progressBar{
     height: 10px;
     width: 100%;
+    margin-top: 56px;
+    position: fixed;
     display: flex;
     flex-direction: row;
     background-color: lightgray;
